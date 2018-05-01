@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Index","Home")"><img src="~/Image/logo.png" class="nav-logo" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navlink-margin">
+                    <li>@Html.ActionLink("دورها", "Index", "Help", new { area = "" }, new { @class = "navbar-linkAr hvr-underline-from-center" })</li>
+                    <li>@Html.ActionLink("بدلها", "Index", "Help", new { area = "" }, new { @class = "navbar-linkAr hvr-underline-from-center" })</li>
+
+                    <li>@Html.ActionLink("مزدها", "Index", "Home", new { area = "" }, new { @class = "navbar-linkAr hvr-underline-from-center" })</li>
+                </ul>
+                <ul class="nav navbar-nav pull-left">
+                    <li><a href="@Url.Action("Register","Home")"><span><i class="fa fa-3x fa-user-plus" aria-hidden="true"></i></span></a></li>
+                    <li><a href="@Url.Action("Login","Home")"><span><i class="fa fa-3x fa-sign-in" aria-hidden="true"></i>
+                    </span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <div class="container-fluid FooterCont">
+        <div class="container">
+            <footer class="Footer">
+                <div class="col-md-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7291202.47386223!2d26.38201555707585!3d26.834943732855383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14368976c35c36e9%3A0x2c45a00925c4c444!2sEgypt!5e0!3m2!1sen!2seg!4v1523459752214" style="border:0" allowfullscreen></iframe>
+                    @*<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13830.013572574324!2d30.8836681!3d29.9361959!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1513381560667" style="border: 0" allowfullscreen></iframe>*@
+                </div>
+                <div class="col-md-3">
+                    <ul>
+                        <li class="hvr-overline-from-right">@Html.ActionLink("مزدها", "Index", "Home", new { area = "" }, new { @class = "navbar-linkAr" })</li>
+                        <li class="hvr-overline-from-right">@Html.ActionLink("دورها", "Index", "Help", new { area = "" }, new { @class = "navbar-linkAr" })</li>
+                        <li class="hvr-overline-from-right">@Html.ActionLink("بدلها", "Index", "Help", new { area = "" }, new { @class = "navbar-linkAr" })</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 text-center">
+                    <br />
+                    <input placeholder="ادخل اسمك .." class="form-control" type="text" />
+                    <br />
+                    <textarea placeholder="اكتب رسالتك .." class="form-control"></textarea>
+                    <br />
+                    <button class="btn btn-default">Send</button>
+                </div>
+            </footer>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

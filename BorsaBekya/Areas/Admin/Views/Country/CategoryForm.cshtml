@@ -1,0 +1,23 @@
+﻿@model BorsaBekya.Models.ViewModel.CategoryVm
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10" style="padding: 50px">
+        <h2>@Model.Title</h2>
+        @using (Html.BeginForm("Save", "Country"))
+        {
+            <div class="form-group">
+                @Html.TextBoxFor(c=>c.Name,new{@class="form-control"})
+                @Html.ValidationMessageFor(c=>c.Name)
+            </div>
+            @Html.HiddenFor(c => c.Id)
+            @Html.AntiForgeryToken();
+            <button type="submit" class="btn btn-success">اضافه</button>
+            
+        }
+    </div>
+</div>

@@ -1,0 +1,90 @@
+﻿@model BorsaBekya.Models.ViewModel.LoginVm
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<div class="card card-container">
+    <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+
+    @using (Html.BeginForm("Login", "Home"))
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.TextBoxFor(c => c.Email, new { @class = "form-control", placeholder = "ادخل البريد الألكترونى" })
+                    @Html.ValidationMessageFor(c => c.Email)
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(c => c.Password, new { @class = "form-control", placeholder = "ادخل الرقم السرى", type = "password" })
+                    @Html.ValidationMessageFor(c => c.Password)
+                </div>
+                <br />
+                @Html.ValidationMessageFor(c => c.Error)
+
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <button id="btnSubmit" class="btn btn-lg btn-primary btn-block btn-signin FontText" type="submit">تسجيل الدخول</button>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><!-- /card-container -->
+
+
+@section scripts{
+    @*<script type="text/javascript">
+            $(document).ready(function () {
+                $('#btnSubmit').click(function () {
+
+                    if ($("#LoginForm").valid()) {
+                        $('#LoginForm').submit();
+                    }
+                    else {
+                        alert("Some Required Fileds");
+                        return false;
+                    }
+
+                });
+
+                $("#LoginForm").on("submit", function (event) {
+                    event.preventDefault();
+                    //var formData = $(this).serialize();
+                    var formData = new FormData($('form')[0]);
+                    $.ajax({
+                        url: '/api/HomeApi/Login',
+                        type: "POST",
+                        data: formData,
+                        processData: false,  // Important!
+                        contentType: "application/json",
+                        success: function () {
+                            alert('Success!');
+                        },
+                        error: function (xhr) {
+                            alert("Error: " + xhr.responseText);
+                        }
+                    });
+                });
+            });
+
+        </script>*@
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+}
